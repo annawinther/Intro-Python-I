@@ -43,5 +43,10 @@ waypoints = [
 
 # YOUR CODE HERE
 
+long = waypoints[:1]
+
+
+print(long)
+
 # Write a loop that prints out all the field values for all the waypoints
 # YOUR CODE HERE
