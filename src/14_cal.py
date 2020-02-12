@@ -31,17 +31,19 @@ import sys
 import calendar
 from datetime import datetime
 
-# month = int(sys.argv[1]) if len(sys.argv) > 1 else datetime.now().month
-# year = int(sys.argv[2]) if len(sys.argv) > 2 else datetime.now().year
-x = [int(sys.argv[x]) for x in input("Enter month and year to see the calendar: ").split()] 
+month = int(datetime.now().month)
+year = int(datetime.now().year)
 
-# print(x)
-if len(sys.argv) > 3:
-  sys.exit("this function excepts up to two arguments to be given: month abd year")
+def show_calendar(year, month):
+    print(calendar.month(year, month))
 
-def show_calendar():
-    c = calendar.TextCalendar(calendar.SUNDAY)
-    calendar_string = c.formatmonth(x)
-    print(calendar_string)
+print(sys.argv)
 
-show_calendar()
+if len(sys.argv) == 1:
+  show_calendar(year, month)
+elif len(sys.argv) == 2:
+  show_calendar(year, int(sys.argv[1]))
+elif len(sys.argv) == 3:
+  show_calendar(int(sys.argv[2]), int(sys.argv[1]))
+else:
+  print('enter month and year')
