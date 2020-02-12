@@ -34,31 +34,38 @@ class Waypoint(LatLon):
         self.name = name
         super(Waypoint, self).__init__(*args)
 
-    def __repr__(self):
-
-        return str({"name": self.name, "lat": self.lat, "lon": self.lon})
-
-    def __str__(self):
-        return str({"name": self.name, "lat": self.lat, "lon": self.lon})
-
     def get_location(self):
         return {"name": self.name, "lat": self.lat, "lon": self.lon}
 
 point = Waypoint('home', '33', '66')
 
 print(point.name)
-print(point.get_lon())
-print(point.get_lat())
-print(point.get_location()
+print(point.get_location())
 
 # Make a class Geocache that can be passed parameters `name`, `difficulty`,
 # `size`, `lat`, and `lon` to the constructor. What should it inherit from?
 
 # YOUR CODE HERE
 
+class Geocache(Waypoint):
+
+    def _init_(self, difficulty, size, *args):
+        self.difficulty = difficulty
+        self.size = size
+
+        super(Geocache, self).__init__(*args)
+
+n = Geocache("Catacombs", "hard", "big", 41.70505, -121.51521)
+
+print(Geocache) 
+
 # Make a new waypoint and print it out: "Catacombs", 41.70505, -121.51521
 
 # YOUR CODE HERE
+
+newWaypoint = Waypoint("Catacombs", 41.70505, -121.51521)
+
+print(newWaypoint.get_location())
 
 # Without changing the following line, how can you make it print into something
 # more human-readable? Hint: Look up the `object.__str__` method
@@ -69,4 +76,4 @@ print(point.get_location()
 # YOUR CODE HERE
 
 # Print it--also make this print more nicely
-print(geocache)
+# print(geocache)
